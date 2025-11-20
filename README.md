@@ -1,89 +1,68 @@
+# 📚 Library Management System
 
-# Library Management System - README
+![C++](https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Visual Studio](https://img.shields.io/badge/Visual%20Studio-5C2D91?style=for-the-badge&logo=visual-studio&logoColor=white)
+![File Handling](https://img.shields.io/badge/File_Handling-Text_Files-orange?style=for-the-badge)
 
-## Project Overview
-This project is a Library Management System developed in C++ as a term project for the Programming Fundamentals course at the National University of Computer and Emerging Sciences, Lahore Campus. The system utilizes file handling to store and manage data about books and their lending records.
+A robust **Library Management System** developed in **C++**. This project was built as a term project for the *Programming Fundamentals* course at **FAST-NUCES**, demonstrating mastery of procedural programming, file handling, and algorithm efficiency without the use of Object-Oriented Programming (OOP) or pointers.
 
-## Features
-1. User Authentication
-   - Login or Sign-Up functionality to ensure only registered users can access the system.
-   - If a user does not exist, they will be prompted to sign up.
+## 🚀 Project Overview
+This system serves as a digital catalog for managing library operations. It utilizes **File Handling** to persistently store book records and lending history, ensuring data integrity even after the program terminates. It is optimized to handle up to **10,000 records** using efficient searching algorithms.
 
-2. Menu-Driven Interface
-   - A menu provides access to various features of the system.
-   - The system continues to run until the user chooses to exit.
+## ✨ Key Features
 
-3. Book Storage
-   - Books are stored with details such as title, ISBN number, author, date of publishing, and quantity available.
+### 🔐 User Access
+* **Authentication:** Secure Login and Sign-Up mechanism.
+* **Role Validation:** Ensures only registered users can perform operations.
 
-4. Book Retrieval
-   - Users can search for books by title or ISBN number.
+### 📖 Book Management
+* **CRUD Operations:** Add new books, delete obsolete records, and update stock quantities.
+* **Smart Search:** Search books by **Title** or **ISBN**.
+* **Optimization:** Implements **Binary Search** and **Sorting Algorithms** for rapid retrieval.
 
-5. Book Management
-   - Add new books to the library.
-   - Delete books from the library.
-   - Update the quantity of books available.
+### 🔄 Circulation System
+* **Book Lending:** Assign books to users with a timestamp.
+* **Returns & Fines:** Tracks return dates and automatically calculates fines for late submissions.
+* **Inventory Tracking:** Automatically decrements/increments stock upon borrowing/returning.
 
-6. Book Lending
-   - Lend books to users.
-   - Manage the return of issued books.
-   - Track fines for late returns.
+## ⚙️ Technical Implementation (The "Under the Hood")
 
-## Requirements
-- Data Structures: 
-  - `Book` struct: Contains title, ISBN number, author, date of publishing, quantity available, and total quantity.
-  - `Lending` struct: Contains information about issued books, issuing date, return date, borrower name, and applicable fines.
+This project was built under strict constraints to demonstrate core programming logic:
+* **No OOP (Classes):** Built entirely using `structs` and functions.
+* **No Pointers/Vectors:** Memory managed using static arrays.
+* **Data Structures:**
+    * `struct Book`: Stores Title, ISBN, Author, Publication Date, and Stock.
+    * `struct Lending`: Tracks Borrower Name, Issue Date, Return Date, and Fines.
+* **Persistence:** Custom text-based file database stores data in `Books/` and `Lending/` directories.
 
-- File Handling:
-  - Data is stored in text files within respective directories (e.g., Books and Lending folders).
-  - On startup, the system loads data from these files into memory.
-  - Any changes in data are reflected in the files to maintain integrity.
+## 🛠️ Setup & Installation
 
-- Data Storage:
-  - Capacity to store up to 10,000 books.
-  - Arrays of structs are used to manage book and lending records in memory.
+### Prerequisites
+* **Visual Studio Community Edition** (Recommended IDE).
+* **Dependencies:**
+    * `dirent.h` (For directory traversal).
+    * `stdfx.h` (Standard precompiled header).
 
-- Efficiency:
-  - The system uses sorting and binary search for efficient book searching.
+### Installation Steps
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/MiraalFatima/Library-Management-System.git](https://github.com/MiraalFatima/Library-Management-System.git)
+    ```
+2.  **Library Setup:**
+    * Ensure `dirent.h` is included in your include path if you are on Windows/Visual Studio.
+3.  **Compile & Run:**
+    * Open the `.sln` file in Visual Studio.
+    * Build the solution (`Ctrl + Shift + B`).
+    * Run the Local Windows Debugger (`F5`).
 
-- Persistent Data:
-  - Data is stored on disk to ensure it is not lost when the system is closed.
-  - The system reloads data automatically on startup or when changes are made.
-
-- Fine Management:
-  - Tracks fines collected from late returns.
-
-## Additional Requirements
-- Use of C++ string library is allowed.
-- No use of other STL libraries (e.g., algorithm).
-- No use of OOP concepts (e.g., classes) and dynamic memory allocation (e.g., pointers).
-
-## Setup and Installation
-1. Download Required Libraries:
-   - [dirent.h](https://github.com/tronkko/dirent)
-   - [stdfx.h](https://www.google.com/search?q=stdfx.h)
-
-2. Development Environment:
-   - The project must be implemented using Visual Studio Community Edition.
-
-3. **Compile and Run**:
-   - Ensure the downloaded libraries are included in your project directory.
-   - Open the project in Visual Studio and compile the code.
-   - Run the executable to start the Library Management System.
-
-## How to Use
-1. Login/Sign-Up:
-   - Enter your credentials to log in or sign up if you are a new user.
-
-2. Main Menu:
-   - Navigate through the menu to access different features such as adding books, searching books, lending books, and managing returns.
-
-3. Data Management:
-   - Add or delete books as required.
-   - Lend books to users and manage returns efficiently.
-
-4. Exit:
-   - Choose the exit option from the menu to terminate the program.
-
-## Conclusion
-This Library Management System provides a comprehensive solution for managing books and lending records using C++ and file handling. Ensure all requirements and instructions are followed for a smooth setup and usage experience.
+## 📂 Project Structure
+```text
+├── Source/
+│   ├── main.cpp             # Entry point and menu logic
+│   ├── auth.cpp             # Login and Sign-up functions
+│   ├── books.cpp            # Book addition, deletion, and search logic
+│   └── circulation.cpp      # Lending and returning logic
+├── Data/
+│   ├── Books/               # Text files storing book details
+│   └── Lending/             # Text files storing lending history
+└── README.md
